@@ -1,0 +1,54 @@
+## 
+##  ~/.bashrc 
+## 
+
+
+umask 0027
+
+export PATH=/usr/lib/go-1.8/bin:/home/arne/bin:/usr/sbin:/sbin:$PATH
+export PS1='\u@\h [\W]\$ '
+export HISTCONTROL=ignoredups
+export HISTSIZE=5000
+export HISTFILESIZE=5000
+
+
+export EDITOR="vim"
+export GPG_TTY=`tty`
+
+alias ll='ls -lh'
+alias lld='ls -lh | grep ^d'
+alias llf='ls -lh | grep -v ^d'
+alias j='jobs'
+alias free='free -h'
+alias df='df -h'
+alias vi='vim'
+
+
+case $TERM in
+rxvt|rxvt-unicode|xterm|xterm-color|eterm|aterm|wterm*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"';
+    ;;
+*)
+    ;;
+esac
+
+if [ $TERM == "rxvt-unicode" ]; then export TERM=rxvt; fi 
+
+
+function longps1 ()
+        {
+            PS1='\u@\h [\w]\$ '
+            export PS1
+        }
+
+
+function shortps1 ()
+        {
+            PS1='\u@\h [\W]\$ '
+            export PS1
+        }
+
+
+
+
+

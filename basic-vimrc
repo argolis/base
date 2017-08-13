@@ -1,0 +1,204 @@
+version 6.0
+                        " autocmd!: remove old autocommands
+autocmd!                
+set nocompatible	" Use Vim defaults (much better!)
+set magic               " yes ...
+set mls=0               " no no no no no no no no ...
+set nomodeline          " mls has to be OFF for security reasons!
+set report=100          " don't bother me with reports
+set showmode            " show mode in statusline
+set laststatus=2        " always show statusline
+set autowrite           " save automagically, e.g. when using 'make'
+set bs=2		" allow backspacing over everything in insert mode
+set ai			" always set autoindenting on
+set nobackup		" don't keep a backup file
+set viminfo=!,'20,\"50	" read/write a .viminfo file, don't store more
+        		" than 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set expandtab           " Tabs in spaces umwandeln 
+set tabstop=4
+set shiftwidth=4
+set formatoptions=tcrq
+set comments=n:>,n:%,n:\|,n://
+set nowrap              " don't wrap lines that don't fit into the terminal window
+set nodigraph           " yes, we want to enter digraphs in insert-mode
+set noerrorbells        " don't beep
+set visualbell          " beep visual, if you have to beep at all
+set incsearch           " incremental search
+" set encoding=iso-8859-15 
+
+set nospell
+" set spelllang=de,en
+
+set showmatch           " When a bracket is inserted, briefly jump to the matching one.
+set nohls               " by default, hls is off
+set matchtime=2         " Tenths of a second to show the matching paren (def=5)
+set nostartofline       " stay in same column when moving the cursor
+                        " suffixes: which files to show last when browsing
+set suffixes=~,.dvi,.tar,.bak,.gz,.tgz,.swp,.ps,.Z,.log,.aux,.bbl,.blg,.ent,.rtf
+set wildmenu            " enhanced browsing through filenames
+"set wildmode=list:full " I don't like this very much ...
+
+let loaded_matchparen = 1
+
+
+"-----------=#=--------------
+"  other files to read in
+"-----------=#=--------------
+
+" always source these files
+source /home/arne/.vimrc.typos
+source /home/arne/.vimrc.abbr
+source /home/arne/.vimrc.urls
+"source /home/arne/vim/Comment.vim
+"source /home/arne/vim/Quote.vim
+
+"-----------=#=--------------
+"      autocommands 
+"-----------=#=--------------
+
+filetype plugin indent on 
+filetype plugin on
+
+
+
+" skeleton files to read
+autocmd BufNewFile /home/arne/txt/*.tex 0r /home/arne/txt/.tex.skeleton.scrartcl
+autocmd BufNewFile /home/arne/briefe/*.tex 0r /home/arne/briefe/.tex.skeleton.g-brief
+"autocmd BufNewFile /home/arne/rechnungen/*.tex 0r /home/arne/rechnungen/.tex.skeleton.rechnung
+autocmd BufNewFile ~/rechnungen/mxc/rechnung* 0r /home/arne/rechnungen/mxc/.template.rechnung
+
+autocmd BufNewFile ~/rechnungen/rechnung* 0r /home/arne/rechnungen/.template.rechnung
+
+
+" help to detect the filetype
+autocmd BufRead,BufNewFile ~/News/postponed/* set ft=mail
+autocmd BufRead,BufNewFile .vimrc.* set ft=vim
+autocmd BufRead,BufNewFile pfrules* set ft=sh
+autocmd BufRead,BufNewFile /etc/packetfilter/* set ft=sh
+
+let g:tex_flavor = "latex" 
+
+
+
+" some specific files are read for tex, html, java, mail, news, etc.
+autocmd FileType bib  source /home/arne/.vimrc.bib
+autocmd FileType tex  source /home/arne/.vimrc.tex
+autocmd FileType html source /home/arne/.vimrc.html
+autocmd FileType xhtml source /home/arne/.vimrc.html
+autocmd FileType java source /home/arne/.vimrc.java
+autocmd FileType mail source /home/arne/.vimrc.mail
+
+
+
+
+autocmd FileType vim set comments=n:\" nospell 
+
+autocmd FileType c set cindent tabstop=4 expandtab
+autocmd FileType c map <F9>  :make <CR><CR>
+
+" vim -b : edit binary using xxd-format!
+augroup Binary
+  au!
+  au BufReadPre  *.bin let &bin=1
+  au BufReadPost *.bin if &bin | %!xxd
+  au BufReadPost *.bin set ft=xxd | endif
+  au BufWritePre *.bin if &bin | %!xxd -r
+  au BufWritePre *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd
+  au BufWritePost *.bin set nomod | endif
+augroup END
+
+
+
+"-----------=#=--------------
+"      status line
+"-----------=#=--------------
+"
+" Display byte count and byte value, modified flag in red.
+" set statusline=%<%f%=\ [%1*%M%*%n%R%H]\ %-19(%3l,%02c%03V%)%O'%02b'
+" hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+
+" Emulate standard status line with 'ruler' set
+" set statusline=%<%F%h%m%r%=%l,%c%V\ %P
+
+" Idem, but add ascii value of char under the cursor (like "ga")
+"set statusline=%<%F%h%m%r%=%b\ 0x%B\ \ [%l,%c%V]\ %P
+" set statusline=%<%F%y%r%m%=[%l,%c%V]\ [%P\ of\ %L]\ 
+ set statusline=%<%F%y%r%m%=[%l,%c%V]\ [%P\ of\ %L]\ 
+
+
+"-----------=#=--------------
+"         colors
+"-----------=#=--------------
+
+set background=light
+syntax on
+
+"hi SpellBad   ctermfg=DarkRed   ctermbg=Grey
+"hi SpellCap   ctermfg=DarkBlue  ctermbg=Grey 
+
+":if $TERM == "rxvt"
+"        hi Statement    ctermfg=DarkRed  
+"        hi search       cterm=underline  ctermfg=Black  ctermbg=Brown
+":endif
+
+:if $TERM == "linux"
+        set background=dark
+:endif
+
+:if $TERM == "hp700"
+        source /home/arne/.vimrc.hp700
+:endif
+
+:if $TERM == "vt510"
+        syntax off
+        set novisualbell
+:endif   
+
+:if $TERM == "vt420"
+        syntax off
+        set novisualbell
+:endif   
+
+:if $TERM == "vt340"
+        syntax off
+        set novisualbell
+        imap <F14> <ESC>
+        imap <C-]> <ESC>
+:endif   
+
+"-----------=#=--------------
+"       mappings
+"-----------=#=--------------
+
+"       Umbruch auf den '_' legen
+map     _       gqip
+
+
+"       toggle linenumbers
+"       
+map <F7> :set invnumber<CR>
+
+"       toggle highlighting
+"       
+map <F8> :set invhls<CR>
+map n nzz
+map N Nzz
+map <Space> <C-W><C-W>
+
+function! GeneratePGPHooks() 
+        :r! gpg --list-keys |
+        \grep ^pub | 
+        \sed 's/^pub *.*\/\([^ ]*\).* <\(.*\)>$/pgp-hook "~t \2" "\1"/' 
+endfunction 
+
+
+" map ,cl :g/\S/s#.*\S.*#/* & */#<CR>
+
+"-----------=#=--------------
+"       formatieren
+"-----------=#=--------------
+
+set secure
