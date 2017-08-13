@@ -1,0 +1,68 @@
+
+
+bundle agent proftpd {
+
+    vars:
+        "packages" slist =>  { "proftpd-basic",
+                               "proftpd-mod-mysql",
+                               "mysql-server"
+                             };
+
+
+    packages:
+        "$(packages)"
+            policy => "present";
+
+
+    services:
+        "proftpd"
+            service_policy => "start";
+
+
+    files:    
+        "/etc/hosts"
+            comment       => "/etc/hosts on ftp server",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/etc/hosts"),
+            edit_defaults => empty;
+
+        "/root/.bashrc"
+            comment       => "bashrc for root",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/root/.bashrc"),
+            edit_defaults => empty;
+
+        "/root/.vimrc"
+            comment       => "vimrc for root",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/root/.vimrc"),
+            edit_defaults => empty;
+
+        "/etc/proftpd/"
+            comment => "proftpd config directory",
+            create  => "true",
+            perms   => m("750");
+
+        "/etc/proftpd/proftpd.conf"
+            comment       => "proftpd main config file",
+            create        => "true",
+            perms         => m("640"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/etc/proftpd/proftpd.conf"),
+            edit_defaults => empty;
+
+        "/etc/proftpd/modules.conf"
+            comment       => "proftpd modules config file",
+            create        => "true",
+            perms         => m("640"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/etc/proftpd/modules.conf"),
+            edit_defaults => empty;
+
+        "/var/log/proftpd/"
+            comment => "proftpd log directory",
+            create  => "true",
+            perms   => m("755");
+
+}

@@ -1,0 +1,13 @@
+
+body common control {
+
+    bundlesequence => { "proftpd" };
+
+    inputs =>   {   "/var/cfengine/share/CoreBase/masterfiles/lib/stdlib.cf",
+                    "proftpd.cf"
+                };
+
+    package_module => "apt_get";
+
+}
+
