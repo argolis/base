@@ -1,4 +1,4 @@
-version 7.0
+version 8.0
           
 autocmd!                
 set nocompatible	
@@ -49,12 +49,8 @@ filetype plugin indent on
 filetype plugin on
 
 
-
-
 " help to detect the filetype
 autocmd BufRead,BufNewFile .vimrc.* set ft=vim
-
-
 
 
 "-----------=#=--------------
@@ -65,11 +61,23 @@ autocmd BufRead,BufNewFile .vimrc.* set ft=vim
 
 
 "-----------=#=--------------
+"       mappings
+"-----------=#=--------------
+
+map     _       gqip
+map <F7> :set invnumber<CR>
+map <F8> :set invhls<CR>
+map n nzz
+map N Nzz
+map <Space> <C-W><C-W>
+
+
+"-----------=#=--------------
 "         colors
 "-----------=#=--------------
 
 set background=light
-syntax on
+colorscheme delek
 
 "hi SpellBad   ctermfg=DarkRed   ctermbg=Grey
 "hi SpellCap   ctermfg=DarkBlue  ctermbg=Grey 
@@ -84,28 +92,5 @@ syntax on
 :endif
 
 
-"-----------=#=--------------
-"       mappings
-"-----------=#=--------------
 
-"       Umbruch auf den '_' legen
-map     _       gqip
-
-
-"       toggle linenumbers
-"       
-map <F7> :set invnumber<CR>
-
-"       toggle highlighting
-"       
-map <F8> :set invhls<CR>
-map n nzz
-map N Nzz
-map <Space> <C-W><C-W>
-
-
-"-----------=#=--------------
-"       formatieren
-"-----------=#=--------------
-
-set secure
+syntax enable
