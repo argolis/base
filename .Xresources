@@ -1,0 +1,51 @@
+
+
+
+!rxvt-unicode.font:              xft:DejaVu Sans Mono:style=Bold:size=9
+
+rxvt-unicode.font:              xft:Terminus:style=Bold:size=10
+rxvt-unicode.geometry:          216x70+80+30
+
+
+rxvt-unicode.visualBell:        False 
+rxvt-unicode.reverseVideo:      False
+
+rxvt-unicode.saveLines:         5000
+rxvt-unicode.scrollBar:         False
+
+
+rxvt-unicode.foreground:        #202020
+rxvt-unicode.background:        grey90
+rxvt-unicode.cursorColor:       #505050
+
+rxvt-unicode.colorBD:           DarkBlue
+rxvt-unicode.colorIT:           #ff8000
+rxvt-unicode.colorUL:           #ff8000
+
+! rxvt-unicode.color0:           #151515
+! rxvt-unicode.color1:           #bf7979
+! rxvt-unicode.color2:           #97b26b
+! rxvt-unicode.color3:           #cdcda1
+
+! rxvt-unicode.color4:           #4a5463
+
+! rxvt-unicode.color5:           #9c3885
+! rxvt-unicode.color6:           #88aadd
+
+! hilight bg
+rxvt-unicode.color7:           #99ccff
+!rxvt-unicode.color7:           #F5F5F5
+
+! rxvt-unicode.color8:           #505450
+! rxvt-unicode.color9:           #f4a45f
+! rxvt-unicode.color10:          #c5f779
+! rxvt-unicode.color11:          #ffffaf
+! rxvt-unicode.color12:          #7d8794
+! rxvt-unicode.color13:          #e628ba
+! rxvt-unicode.color14:          #99ccff
+! rxvt-unicode.color15:          #dedede
+
+
+rxvt-unicode.foreground:  #000000
+rxvt-unicode.background:  #d9d9d9
+
