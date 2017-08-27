@@ -5,7 +5,7 @@
 
 umask 0027
 
-export PATH=/usr/lib/go-1.8/bin:/home/arne/bin:/usr/sbin:/sbin:$PATH
+export PATH="/usr/lib/go-1.8/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/sbin:/bin"
 export PS1='\u@\h [\W]\$ '
 export HISTCONTROL=ignoredups
 export HISTSIZE=5000
@@ -24,29 +24,26 @@ alias df='df -h'
 alias vi='vim'
 
 
-case $TERM in
-rxvt|rxvt-unicode|xterm|xterm-color|eterm|aterm|wterm*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"';
-    ;;
-*)
-    ;;
-esac
+#case $TERM in
+#    rxvt|rxvt-unicode|xterm|xterm-color|eterm|aterm|wterm*)
+#        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"';
+#        ;;
+#    *)
+#        ;;
+#esac
 
 if [ $TERM == "rxvt-unicode" ]; then export TERM=rxvt; fi 
 
 
-function longps1 ()
-        {
-            PS1='\u@\h [\w]\$ '
-            export PS1
-        }
+lps1() {
+    PS1='\u@\h [\w]\$ '
+    export PS1
+}
 
-
-function shortps1 ()
-        {
-            PS1='\u@\h [\W]\$ '
-            export PS1
-        }
+sps1() {
+    PS1='\u@\h [\W]\$ '
+    export PS1
+}
 
 
 
