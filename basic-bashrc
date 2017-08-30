@@ -5,7 +5,7 @@
 
 umask 0027
 
-export PATH="/usr/lib/go-1.8/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/sbin:/bin"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export PS1='\u@\h [\W]\$ '
 export HISTCONTROL=ignoredups
 export HISTSIZE=5000
@@ -13,7 +13,6 @@ export HISTFILESIZE=5000
 
 
 export EDITOR="vim"
-export GPG_TTY=`tty`
 
 alias ll='ls -lh'
 alias lld='ls -lh | grep ^d'
