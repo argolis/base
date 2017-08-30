@@ -21,11 +21,11 @@ install_vim_files() {
 
     if [ -d "$vim_dir" ]; then
 
-        wget -O - https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/syntax/cf3.vim   > /usr/share/vim/$vim_dir/syntax/cf3.vim
-        chmod 0644 /usr/share/vim/$vim_dir/syntax/cf3.vim
+        wget -O - https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/syntax/cf3.vim   > $vim_dir/syntax/cf3.vim
+        chmod 0644 $vim_dir/syntax/cf3.vim
 
-        wget -O - https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/ftplugin/cf3.vim > /usr/share/vim/vim80/$vim_dir/ftplugin/cf3.vim
-        chmod 0644 /usr/share/vim/$vim_dir/ftplugin/cf3.vim
+        wget -O - https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/ftplugin/cf3.vim > $vim_dir/ftplugin/cf3.vim
+        chmod 0644 $vim_dir/ftplugin/cf3.vim
     fi 
 }
 
