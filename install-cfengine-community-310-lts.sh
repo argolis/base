@@ -16,6 +16,11 @@ install_repo() {
 }
 
 
+install_vim() {
+    apt-get install vim
+}
+
+
 install_vim_files() {
     vim_dir=$(find /usr/share/vim -type d -regex '/usr/share/vim/vim[0-9][0-9]$')
 
@@ -50,6 +55,7 @@ install_cfengine() {
 install_key
 install_apt
 install_repo
+install_vim
 install_vim_files
 install_cfengine
 
