@@ -18,10 +18,7 @@ install_repo() {
 
 install_vim() {
     apt-get install vim
-}
 
-
-install_vim_files() {
     vim_dir=$(find /usr/share/vim -type d -regex '/usr/share/vim/vim[0-9][0-9]$')
 
     if [ -d "$vim_dir" ]; then
@@ -32,6 +29,11 @@ install_vim_files() {
         wget -O - https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/ftplugin/cf3.vim > $vim_dir/ftplugin/cf3.vim
         chmod 0644 $vim_dir/ftplugin/cf3.vim
     fi 
+}
+
+
+install_python() { 
+    apt-get install python
 }
 
 
@@ -56,7 +58,7 @@ install_key
 install_apt
 install_repo
 install_vim
-install_vim_files
+install_python
 install_cfengine
 
 
