@@ -3,11 +3,15 @@ body common control {
 
     bundlesequence => { "oobaccess", 
                         "basics",
+                        "ssh",
+                        "mysql",
                         "proftpd" };
 
     inputs =>   {   "/var/cfengine/share/CoreBase/masterfiles/lib/stdlib.cf",
                     "oobaccess.cf",
                     "basics.cf",
+                    "ssh.cf",
+                    "mysql.cf",
                     "proftpd.cf"
                 };
 

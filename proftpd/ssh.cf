@@ -1,0 +1,37 @@
+
+
+bundle agent ssh {
+
+    vars:
+        "packages" slist =>  { "openssh-server"
+                             };
+
+
+    packages:
+        "$(packages)"
+            policy => "present";
+
+
+
+    files:    
+        "/etc/ssh/sshd_config"
+            comment       => "/etc/ssh/sshd_config on ftp server",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/etc/ssh/sshd_config"),
+            edit_defaults => empty;
+
+        "/root/.ssh/"
+            comment       => "directory /root/.ssh on ftp server",
+            perms         => m("700");
+
+        "/root/.ssh/authorized_keys"
+            comment       => "/root/.ssh/autorized_keys",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/root/.ssh/authorized_keys"),
+            edit_defaults => empty;
+
+
+
+}
