@@ -4,8 +4,7 @@ bundle agent proftpd {
 
     vars:
         "packages" slist =>  { "proftpd-basic",
-                               "proftpd-mod-mysql",
-                               "mysql-server"
+                               "proftpd-mod-mysql"
                              };
 
 
@@ -20,27 +19,6 @@ bundle agent proftpd {
 
 
     files:    
-        "/etc/hosts"
-            comment       => "/etc/hosts on ftp server",
-            create        => "true",
-            perms         => m("644"),
-            edit_line     => expand_template("$(sys.inputdir)/templates/etc/hosts"),
-            edit_defaults => empty;
-
-        "/root/.bashrc"
-            comment       => "bashrc for root",
-            create        => "true",
-            perms         => m("644"),
-            edit_line     => expand_template("$(sys.inputdir)/templates/root/.bashrc"),
-            edit_defaults => empty;
-
-        "/root/.vimrc"
-            comment       => "vimrc for root",
-            create        => "true",
-            perms         => m("644"),
-            edit_line     => expand_template("$(sys.inputdir)/templates/root/.vimrc"),
-            edit_defaults => empty;
-
         "/etc/proftpd/"
             comment => "proftpd config directory",
             create  => "true",

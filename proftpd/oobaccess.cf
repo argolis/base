@@ -1,0 +1,10 @@
+
+
+bundle agent oobaccess {
+
+    services:
+        "serial-getty@ttyS0.service"
+            service_policy => "start";
+
+
+}

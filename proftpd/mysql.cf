@@ -1,0 +1,27 @@
+
+
+bundle agent mysql {
+
+    vars:
+        "packages" slist =>  { "mysql-server"
+                             };
+
+
+    packages:
+        "$(packages)"
+            policy => "present";
+
+
+    services:
+        "mysql"
+            service_policy => "start";
+
+
+    files:    
+
+        "/var/log/mysql/"
+            comment => "mysql log directory",
+            create  => "true",
+            perms   => m("755");
+
+}

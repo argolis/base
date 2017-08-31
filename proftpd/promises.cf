@@ -1,9 +1,13 @@
 
 body common control {
 
-    bundlesequence => { "proftpd" };
+    bundlesequence => { "oobaccess", 
+                        "basics",
+                        "proftpd" };
 
     inputs =>   {   "/var/cfengine/share/CoreBase/masterfiles/lib/stdlib.cf",
+                    "oobaccess.cf",
+                    "basics.cf",
                     "proftpd.cf"
                 };
 
