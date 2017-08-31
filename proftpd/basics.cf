@@ -11,7 +11,8 @@ bundle agent basics {
                                "lsof",
                                "atop",
                                "tcpdump",
-                               "xterm"
+                               "xterm",
+                               "net-tools"
                              };
 
 
@@ -22,6 +23,13 @@ bundle agent basics {
 
 
     files:    
+        "/etc/nsswitch.conf"
+            comment       => "/etc/nsswitch.conf on ftp server",
+            create        => "true",
+            perms         => m("644"),
+            edit_line     => expand_template("$(sys.inputdir)/templates/etc/nsswitch.conf"),
+            edit_defaults => empty;
+
         "/etc/resolv.conf"
             comment       => "/etc/resolv.conf on ftp server",
             create        => "true",
