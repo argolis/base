@@ -15,7 +15,7 @@ bundle agent ssh {
 
     files:    
         "/etc/ssh/sshd_config"
-            comment       => "/etc/ssh/sshd_config on ftp server",
+            comment       => "SSH daemon config on ftp server",
             create        => "true",
             perms         => m("644"),
             edit_line     => expand_template("$(sys.inputdir)/templates/etc/ssh/sshd_config"),
@@ -26,7 +26,7 @@ bundle agent ssh {
             perms         => m("700");
 
         "/root/.ssh/authorized_keys"
-            comment       => "/root/.ssh/autorized_keys",
+            comment       => "autorized keys for root account",
             create        => "true",
             perms         => m("644"),
             edit_line     => expand_template("$(sys.inputdir)/templates/root/.ssh/authorized_keys"),

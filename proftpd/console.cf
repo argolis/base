@@ -4,6 +4,7 @@ bundle agent oobaccess {
 
     services:
         "serial-getty@ttyS0.service"
+            comment        => "start a getty for serial console access",
             service_policy => "start";
 
 
