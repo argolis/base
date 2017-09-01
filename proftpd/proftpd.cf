@@ -44,3 +44,5 @@ bundle agent proftpd {
             perms   => m("755");
 
 }
+
+# vim: ft=cf3 foldlevel=99
