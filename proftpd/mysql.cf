@@ -3,26 +3,40 @@
 bundle agent mysql {
 
     vars:
-        "packages" slist =>  { "mysql-server"
-                             };
-
-
+        "packages" slist =>  { "mysql-server" };
+ 
+ 
     packages:
-        "$(packages)"
-            policy => "present";
-
-
+        ftp_sandara_org::
+            "$(packages)"
+                policy => "present";
+ 
+ 
     services:
-        "mysql"
-            service_policy => "start";
-
-
+        ftp_sandara_org::
+            "mysql"
+                service_policy => "start";
+ 
+ 
     files:    
+        ftp_sandara_org::
+            "/var/log/mysql/."
+                comment => "mysql log directory",
+                create  => "true",
+                perms   => m("755");
 
-        "/var/log/mysql/"
-            comment => "mysql log directory",
-            create  => "true",
-            perms   => m("755");
+            "/usr/local/bin/create_proftpd_database"
+                comment       => "Shell script to create ProFTP database",
+                create        => "true",
+                perms         => mog("0754", "root", "staff"),
+                edit_line     => expand_template("$(sys.inputdir)/files/usr/local/bin/create_proftpd_database"),
+                edit_defaults => empty;
+ 
+    
+    commands:
+        ftp_sandara_org::
+            "/usr/local/bin/create_proftpd_database";
+ 
 
 }
 

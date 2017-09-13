@@ -3,8 +3,7 @@
 bundle agent ssh {
 
     vars:
-        "packages" slist =>  { "openssh-server"
-                             };
+        "packages" slist =>  { "openssh-server" };
 
 
     packages:
@@ -15,24 +14,22 @@ bundle agent ssh {
 
     files:    
         "/etc/ssh/sshd_config"
-            comment       => "SSH daemon config on ftp server",
+            comment       => "SSH daemon config",
             create        => "true",
             perms         => m("644"),
-            edit_line     => expand_template("$(sys.inputdir)/templates/etc/ssh/sshd_config"),
+            edit_line     => expand_template("$(sys.inputdir)/files/etc/ssh/sshd_config"),
             edit_defaults => empty;
 
-        "/root/.ssh/"
-            comment       => "directory /root/.ssh on ftp server",
+        "/root/.ssh/."
+            comment       => "Directory /root/.ssh",
             perms         => m("700");
 
         "/root/.ssh/authorized_keys"
-            comment       => "autorized keys for root account",
+            comment       => "Autorized keys file for root account",
             create        => "true",
             perms         => m("644"),
-            edit_line     => expand_template("$(sys.inputdir)/templates/root/.ssh/authorized_keys"),
+            edit_line     => expand_template("$(sys.inputdir)/files/root/.ssh/authorized_keys"),
             edit_defaults => empty;
-
-
 
 }
 

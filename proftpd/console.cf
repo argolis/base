@@ -1,6 +1,6 @@
 
 
-bundle agent oobaccess {
+bundle agent console {
 
     services:
         "serial-getty@ttyS0.service"
