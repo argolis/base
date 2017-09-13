@@ -23,8 +23,9 @@ let loaded_matchparen = 1
 filetype plugin indent on 
 filetype plugin on
 
-autocmd BufRead,BufNewFile .vimrc.*         set ft=vim
-autocmd BufRead,BufNewFile /var/cfengine/*  set ft=cf3 foldlevel=99
+autocmd BufRead,BufNewFile .vimrc.*             set ft=vim
+autocmd BufRead,BufNewFile *.cf                 set ft=cf3 foldlevel=99
+autocmd BufRead,BufNewFile /etc/bind/named*     set ft=named
 
 set statusline=%<%F%y%r%m%=[%l,%c%V]\ [%P\ of\ %L]\ 
 
