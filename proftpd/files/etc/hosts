@@ -1,9 +1,0 @@
-##
-## /etc/hosts
-##
-
-127.0.0.1	localhost 
-
-172.20.150.169   ftp1.office.primervoto.de ftp1
-
-
