@@ -7,7 +7,7 @@ install_key() {
 
 
 install_apt() {
-    apt-get install aptitude apt-transport-https 
+    apt-get install --assume-yes aptitude apt-transport-https 
 }
 
 
@@ -17,7 +17,7 @@ install_repo() {
 
 
 install_vim() {
-    apt-get install vim
+    apt-get install --assume-yes vim
 
     vim_dir=$(find /usr/share/vim -type d -regex '/usr/share/vim/vim[0-9][0-9]$')
 
@@ -33,14 +33,14 @@ install_vim() {
 
 
 install_python() { 
-    apt-get install python
+    apt-get install --assume-yes python
 }
 
 
 install_cfengine() {
     apt-get update
     LATEST_LTS=$(apt-cache show cfengine-community | grep ^Version:.3.7 | sort | cut -d' ' -f 2 | tail -n1)
-    apt-get install cfengine-community=${LATEST_LTS}
+    apt-get install --assume-yes cfengine-community=${LATEST_LTS}
 
     systemctl stop cfengine3
 
