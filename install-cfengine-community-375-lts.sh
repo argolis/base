@@ -1,5 +1,12 @@
 #!/bin/sh 
 
+#
+# install cfengine community 3.7.5
+#
+
+
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
 
 msg() {
     echo "$1"
@@ -13,9 +20,9 @@ die() {
 
 
 check_prereqs() {
-    which wget >/dev/null 2>&1 || die "FATAL: unable to find wget in \$PATH"    
-    apt-get    >/dev/null 2>&1 || die "FATAL: unable to find apt-get in \$PATH"
-    systemctl  >/dev/null 2>&1 || die "FATAL: unable to find systemctl in \$PATH"
+    which wget      >/dev/null 2>&1 || die "FATAL: unable to find wget in \$PATH"    
+    which apt-get   >/dev/null 2>&1 || die "FATAL: unable to find apt-get in \$PATH"
+    which systemctl >/dev/null 2>&1 || die "FATAL: unable to find systemctl in \$PATH"
 }
 
 
@@ -31,7 +38,6 @@ handle_error() {
 install_packages() {
     apt-get --no-install-recommends --assume-yes install apt-transport-https python >/dev/null 2>&1
     handle_error $? "installation of: apt-transport-https python"
-
 }
 
 
@@ -39,10 +45,9 @@ install_vim() {
     apt-get --no-install-recommends --assume-yes install vim >/dev/null 2>&1
     handle_error $? "installation of: vim"
 
-    vim_dir=$(find /usr/share/vim -type d -regex '/usr/share/vim/vim[0-9][0-9]$')
+    vim_dir=$(find /usr/share/vim -type d -regex '^/usr/share/vim/vim[0-9][0-9]$')
 
     if [ -d "$vim_dir" ]; then
-
         wget -O $vim_dir/syntax/cf3.vim https://raw.githubusercontent.com/neilhwatson/vim_cf3/master/syntax/cf3.vim  >/dev/null 2>&1
         handle_error $? "installation of syntax file for cfengine3"
         chmod 0644 $vim_dir/syntax/cf3.vim
@@ -55,10 +60,11 @@ install_vim() {
 
 
 install_cfengine() {
-    wget -qO- https://cfengine-package-repos.s3.amazonaws.com/pub/gpg.key | apt-key add -
-    handle_error $? "attempt to add cfengine package signing key"
+    wget -qO- https://cfengine-package-repos.s3.amazonaws.com/pub/gpg.key | apt-key add - >/dev/null 2>&1
+    handle_error $? "installation of cfengine package signing key"
 
     echo "deb https://cfengine-package-repos.s3.amazonaws.com/pub/apt/packages stable main" > /etc/apt/sources.list.d/cfengine-community.list
+    handle_error $? "installation of cfengine package repository"
 
     apt-get update >/dev/null 2>&1
     handle_error $? "update of local package cache"
@@ -83,6 +89,6 @@ install_cfengine() {
 check_prereqs
 install_packages
 install_vim
-#install_cfengine
+install_cfengine
 
 
