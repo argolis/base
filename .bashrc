@@ -3,8 +3,6 @@
 ## 
 
 
-umask 0027
-
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export PS1='\u@\h [\W]\$ '
 export HISTCONTROL=ignoredups
@@ -14,7 +12,7 @@ export HISTFILESIZE=5000
 
 export EDITOR="vim"
 
-alias ll='ls -lh'
+alias ll='ls -lhFA'
 alias lld='ls -lh | grep ^d'
 alias llf='ls -lh | grep -v ^d'
 alias j='jobs'
