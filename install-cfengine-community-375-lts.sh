@@ -20,6 +20,7 @@ die() {
 
 
 check_prereqs() {
+    [ -f /etc/debian_version ]      || die "FATAL: not a debian system"
     which wget      >/dev/null 2>&1 || die "FATAL: unable to find wget in \$PATH"    
     which apt-get   >/dev/null 2>&1 || die "FATAL: unable to find apt-get in \$PATH"
     which systemctl >/dev/null 2>&1 || die "FATAL: unable to find systemctl in \$PATH"
