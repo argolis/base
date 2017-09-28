@@ -18,7 +18,8 @@ alias llf='ls -lh | grep -v ^d'
 alias j='jobs'
 alias free='free -h'
 alias df='df -h'
-alias vi='vim'
+
+alias agent='eval $(ssh-agent -s); ssh-add ~/.ssh/id_rsa'
 
 
 #case $TERM in

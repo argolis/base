@@ -28,11 +28,11 @@ check_prereqs() {
 
 
 handle_error() {
-    if [ $1 -ne 0 ]; then 
-        die "FATAL: error during $2 (retval=$1)" 
+    if [ $1 -ne 0 ]; then
+        die "FATAL: error while $2 (retval=$1)"
     else
         msg "INFO: completed $2"
-    fi 
+    fi
 }
 
 
