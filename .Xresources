@@ -4,48 +4,64 @@
 !rxvt-unicode.font:              xft:DejaVu Sans Mono:style=Bold:size=9
 
 rxvt-unicode.font:              xft:Terminus:style=Bold:size=10
-rxvt-unicode.geometry:          216x70+80+30
+rxvt-unicode.geometry:          216x63+80+30
 
 
-rxvt-unicode.visualBell:        False 
+rxvt-unicode.visualBell:        False
 rxvt-unicode.reverseVideo:      False
 
 rxvt-unicode.saveLines:         5000
 rxvt-unicode.scrollBar:         False
 
 
-rxvt-unicode.foreground:        #202020
-rxvt-unicode.background:        grey90
+rxvt-unicode.foreground:        #000000
+rxvt-unicode.background:        #e0e0e0
 rxvt-unicode.cursorColor:       #505050
 
 rxvt-unicode.colorBD:           DarkBlue
 rxvt-unicode.colorIT:           #ff8000
 rxvt-unicode.colorUL:           #ff8000
 
-! rxvt-unicode.color0:           #151515
-! rxvt-unicode.color1:           #bf7979
-! rxvt-unicode.color2:           #97b26b
-! rxvt-unicode.color3:           #cdcda1
-
-! rxvt-unicode.color4:           #4a5463
-
-! rxvt-unicode.color5:           #9c3885
-! rxvt-unicode.color6:           #88aadd
-
-! hilight bg
-rxvt-unicode.color7:           #99ccff
-!rxvt-unicode.color7:           #F5F5F5
-
-! rxvt-unicode.color8:           #505450
-! rxvt-unicode.color9:           #f4a45f
-! rxvt-unicode.color10:          #c5f779
-! rxvt-unicode.color11:          #ffffaf
-! rxvt-unicode.color12:          #7d8794
-! rxvt-unicode.color13:          #e628ba
-! rxvt-unicode.color14:          #99ccff
-! rxvt-unicode.color15:          #dedede
+rxvt-unicode.lineSpace:         1
+rxvt-unicode.letterSpace:       0
 
 
-rxvt-unicode.foreground:  #000000
-rxvt-unicode.background:  #d9d9d9
+
+!
+! colors
+!
+
+! black
+! rxvt-unicode.color0:            #f0f0f0
+! red
+rxvt-unicode.color1:            #af0000
+! green
+rxvt-unicode.color2:            #5b910a
+! yellow
+rxvt-unicode.color3:            #d78700
+! dark blue
+rxvt-unicode.color4:            #3535A8
+! dark red
+rxvt-unicode.color5:            #9c3885
+! blue
+rxvt-unicode.color6:            #88aadd
+! white
+rxvt-unicode.color7:            #f9f9f9
+! blue
+rxvt-unicode.color8:            #0066CC
+! orange
+rxvt-unicode.color9:            #f4a45f
+! green
+rxvt-unicode.color10:           #9fda46
+! light yellow
+rxvt-unicode.color11:           #ffffaf
+! blue
+rxvt-unicode.color12:           #3741CE
+! magenta
+rxvt-unicode.color13:           #e628ba
+! light blue
+rxvt-unicode.color14:           #99ccff
+! light grey
+rxvt-unicode.color15:           #dedede
+
 
