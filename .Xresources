@@ -32,27 +32,27 @@ rxvt-unicode.letterSpace:       0
 !
 
 ! black
-! rxvt-unicode.color0:            #f0f0f0
+rxvt-unicode.color0:            #f0f0f0
 ! red
 rxvt-unicode.color1:            #af0000
+! dark red
+rxvt-unicode.color5:            #af275d
 ! green
-rxvt-unicode.color2:            #5b910a
+rxvt-unicode.color2:            #1a9407
+! light green
+rxvt-unicode.color10:           #9fda46
 ! yellow
 rxvt-unicode.color3:            #d78700
-! dark blue
-rxvt-unicode.color4:            #3535A8
-! dark red
-rxvt-unicode.color5:            #9c3885
 ! blue
 rxvt-unicode.color6:            #88aadd
+! dark blue
+rxvt-unicode.color4:            #3535A8
 ! white
 rxvt-unicode.color7:            #f9f9f9
 ! blue
 rxvt-unicode.color8:            #0066CC
 ! orange
 rxvt-unicode.color9:            #f4a45f
-! green
-rxvt-unicode.color10:           #9fda46
 ! light yellow
 rxvt-unicode.color11:           #ffffaf
 ! blue
