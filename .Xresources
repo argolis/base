@@ -32,7 +32,7 @@ rxvt-unicode.letterSpace:       0
 !
 
 ! black
-rxvt-unicode.color0:            #f0f0f0
+rxvt-unicode.color0:            #000000
 ! red
 rxvt-unicode.color1:            #af0000
 ! dark red
@@ -51,8 +51,8 @@ rxvt-unicode.color4:            #3535A8
 rxvt-unicode.color7:            #f9f9f9
 ! blue
 rxvt-unicode.color8:            #0066CC
-! orange
-rxvt-unicode.color9:            #f4a45f
+! dark red
+rxvt-unicode.color9:            #af275d
 ! light yellow
 rxvt-unicode.color11:           #ffffaf
 ! blue
