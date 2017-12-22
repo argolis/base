@@ -83,7 +83,7 @@ install_cfengine() {
     echo "RUN_CF_HUB=0"         >> /etc/default/cfengine3 
 
     systemctl start cfengine3 >/dev/null 2>&1
-    handle_error $? "start of service cfengine3"
+    handle_error $? "starting of service cfengine3"
 }
 
 
